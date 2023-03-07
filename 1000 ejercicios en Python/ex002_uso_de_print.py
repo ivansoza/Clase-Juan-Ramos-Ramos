@@ -11,3 +11,14 @@ print("\tClase","de","programacion")
 # Imprimiendo la cadena "Clase" y luego la cadena "de" y luego la cadena "programacion" y luego va
 # separando cada cadena con un guión.
 print("Clase","de","programacion",sep="-")
+
+print()
+# Printing the string "Hola es Palabra"
+
+print("{} es {}".format("Hola","Palabra"))
+
+print()
+
+numeros = [2,3,4,2,3]
+
+print(numeros)
