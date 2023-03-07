@@ -22,3 +22,8 @@ print()
 numeros = [2,3,4,2,3]
 
 print(numeros)
+
+print()
+alumnos= {1234:"Ivan",1223:"Juan"}
+
+print(alumnos)
