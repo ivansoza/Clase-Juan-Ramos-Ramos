@@ -50,11 +50,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sice.urls'
-
+import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+# Diciéndole a Django dónde buscar plantillas.
+        'DIRS': [os.path.join(BASE_DIR,'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
