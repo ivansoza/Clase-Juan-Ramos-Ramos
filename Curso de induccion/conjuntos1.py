@@ -1,0 +1,31 @@
+#Conjuntos--
+c = set()
+c.add(10)
+c.add(20)
+c.add(30)
+print(c)
+c.add("diez")
+c.add("veinte")
+c.add("treinta")
+print(c)
+c2 = c.copy()
+print (c2)
+c2.add(40)
+print(c2)
+print(c.difference(c2))
+print(c2.difference(c))
+print(c.intersection(c2))
+print(c2.intersection(c))
+print(c2.issubset(c))
+print(c.issubset(c2))
+print(c2.issuperset(c))
+print(c.issuperset(c2))
+n=int(input("Dime cuantos datos quieres agregar:? "))
+for i in range(n):
+    try:
+        dato=int(input("Dame el dato?"))
+        c.add(dato)
+    except ValueError:
+        print("El valor ingresado no es un numero entero: ")
+print (c)
+    
