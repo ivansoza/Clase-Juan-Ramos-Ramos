@@ -20,8 +20,13 @@ from generales import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hola/', views.hola_mundo, name='hola'),
+    #path('hola/', views.hola_mundo, name='hola'),
     path('',views.index,name='index'),
+    path("catalogos/", include("catalogos.urls")),
+    path('usuarios/',include('usuarios.urls')),
+    path('facturacion/',include('facturacion.urls')),
+    path('revisiones/',include('revisiones.urls')),
+    
 
-    path("catalogos/", include("catalogos.urls"))
+
 ]
