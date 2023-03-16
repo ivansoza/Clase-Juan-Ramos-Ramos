@@ -1,0 +1,26 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  padding: 20px 0;
+  background-color: #343a40;
+  color: #fff;
+}
+
+
+h1{
+  color: brown;
+}
+
+@media (max-width: 767px) {
+  /* Oculta el pie de página en dispositivos con pantalla menor o igual a 767px */
+  footer {
+    display: none;
+  }
+}

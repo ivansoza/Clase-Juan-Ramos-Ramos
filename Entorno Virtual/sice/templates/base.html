@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet"  href="{% static 'css/style.css' %}">
+
+
+    <title>
+        {% block titulo %} Mi app  {% endblock %}
+    </title>
+</head>
+<body>
+    {% block menu %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        {% block ref1 %}
+          <a class="navbar-brand" href="{% url 'index' %}">Inicio</a>
+        {% endblock %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              {% block ref2 %}
+                <a class="nav-link" href="{% url 'catalogosHome' %}">Catálogos</a>
+              {% endblock %}
+            </li>
+            <li class="nav-item">
+              {% block ref3 %}
+                <a class="nav-link" href="{% url 'usuariosHome' %}">Usuarios</a>
+              {% endblock %}
+            </li>
+            <li class="nav-item">
+              {% block ref4 %}
+                <a class="nav-link" href="{% url 'facturacionHome' %}">Facturación</a>
+              {% endblock %}
+            </li>
+            <li class="nav-item">
+                {% block ref5 %}
+                  <a class="nav-link" href="{% url 'remisionesHome' %}">Remisiones</a>
+                {% endblock %}
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+         <!--{% if user.is_authenticated %} -->
+              <li class="nav-item">
+                 <!--                 <a class="nav-link"  href="{% url 'logout' %}">Cerrar sesión</a> -->
+                <a class="nav-link"  href="#">Cerrar sesión</a>
+              </li>
+         <!--{% else %} -->
+         <li class="nav-item">
+            
+                <a class="nav-link" href="#">Iniciar sesión</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Registrarse</a>
+              </li>
+           <!--{% endif %} --> 
+          </ul>
+        </div>
+      </nav>
+    {% endblock %}
+
+   <!-- Un marcador de posición para el contenido de la página. -->
+    {% block contenido%}
+       <h1 class="title">Slider 3D con puro CSS</h1>
+       <div class="container">
+          <input type="radio"name="Slider">
+       </div>
+        
+    {%endblock%}
+
+    
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h4>Información de contacto</h4>
+              <ul class="list-unstyled">
+                <li><i class="fa fa-home"></i> Av. Tecnologico Nacional de Mexico Campus Apizaco</li>
+                <li><i class="fa fa-envelope"></i> Correo electrónico: ivansz123@gmail.com</li>
+                <li><i class="fa fa-phone"></i> Teléfono: 246 208 7165</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h4>Enlaces útiles</h4>
+              <ul class="list-unstyled">
+                <li><a href="{% url 'catalogosHome' %}">Catalogos</a></li>
+                <li><a href="{% url 'usuariosHome' %}">Usuarios</a></li>
+                <li><a href="{% url 'facturacionHome' %}">Facturacion</a></li>
+                <li><a href="{% url 'remisionesHome' %}">Remisiones</a></li>
+
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h4>Suscríbete a nuestro boletín</h4>
+              <form>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Introduce tu correo electrónico">
+                </div>
+                <button type="submit" class="btn btn-primary">Suscríbete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+
+
+
+
+
+
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block titulo%}Catalogos {%endblock%}
+
+{%block ref1 %}
+    <a class="navbar-brand" href="{%url 'catalogosHome'%}">Catalogos</a>
+{% endblock%}
+
+{%block ref2 %} 
+    <a class="nav-link" href="{%url 'index'%}">Inicio</a>
+{%endblock%}
+
+{%block ref3 %} 
+    <a class="nav-link" href="{%url 'catalogosProducto'%}">Productos</a>
+{%endblock%}
+
+{%block ref4%}
+    <a class="nav-link" href="{%url 'catalogosServicios'%}">Servicios</a>
+{%endblock%}
+
+{% block ref5 %}
+{% endblock  %}
+
+{% block contenido%}
+    <h1>Estas en el home de catalogos </h1>
+{% endblock%}

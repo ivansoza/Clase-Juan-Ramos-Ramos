@@ -19,6 +19,12 @@ from generales import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+# Un patrón de URL.
     path('',views.index,name='index'),
+   # Una forma de incluir otros archivos urls.py.
+    path("catalogos/", include("catalogos.urls")),
+    path('usuarios/',include('usuarios.urls')),
+    path('facturacion/',include('facturacion.urls')),
+    path('remisiones/',include('remisiones.urls')),
 
 ]
