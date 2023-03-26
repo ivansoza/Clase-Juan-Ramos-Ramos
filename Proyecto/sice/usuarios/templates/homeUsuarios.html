@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block titulo %}Usuarios{% endblock  %}
+
+{% block contenido %}
+    <h1>Estas en el home de usuarios.</h1>
+    <div class="text-center">
+        <a href={% url 'usuariosForm' %} class="btn btn-dark">Formulario de Contacto</a>
+    </div>
+
+    
+
+{% endblock  %}

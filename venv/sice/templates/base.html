@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v1.45">
+    {% block link %}
+    
+    {% endblock  %}
+    <title>
+        {% block titulo %}
+            Mi app 
+        {% endblock  %}
+
+    </title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          {% block ref1 %}
+            <a class="navbar-brand" href={% url 'index' %}>SICE</a>
+          {% endblock  %}
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             
+              <li class="nav-item">
+                {% block ref2 %}
+                    <a class="nav-link" href={% url 'usuariosHome' %}>Usuarios</a>
+                {% endblock  %}
+                
+              </li>
+              {% block ref3 %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Catalogos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href={% url 'catalogosVehiculo' %}>Vehiculo</a></li>
+                  <li><a class="dropdown-item" href={% url 'catalogosPropietario' %}>Propietario</a></li>
+                  <li><a class="dropdown-item" href={% url 'catalogosOficina' %}>Oficina</a></li>
+                  <li><a class="dropdown-item" href={% url 'catalogosPlaca' %}>Placa</a></li>
+
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href={% url 'catalogosHome' %}>Catalogos</a></li>
+                </ul>
+              </li>
+              {% endblock  %}
+              <li class="nav-item">
+                {% block ref4 %}
+                  <a class="nav-link" href={% url 'facturacionHome' %}>Facturacion</a>
+                {% endblock  %}
+              </li>
+              <li class="nav-item">
+                {% block ref5 %}
+                  <a class="nav-link" href={% url 'remisionesHome' %}>Remisiones</a>
+                {% endblock  %}
+              </li>
+                {% block ref6 %}
+                
+                {% endblock  %}
+
+              
+            </ul>
+            <h4 style="color: azure; font-size: small;">
+              {{user.username | upper}}
+
+            </h4>
+
+            {% if request.user.is_authenticated %}
+                 <a href={% url 'exit' %} class="btn btn-dark">Cerrar sesion</a>
+            {% else %}
+                  <a href={% url 'login' %} class="btn btn-dark">Iniciar sesion</a>
+                  <a href={% url 'register' %} class="btn btn-dark">Registrarse</a>
+
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+
+
+    
+
+    {% block contenido %}
+        <h1>Estas en el home principal.</h1>
+        <section data-searchable>
+          <h1>prueba</h1>
+        </section>
+        
+
+
+    {% endblock  %}
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 text-center">
+              <h4>Información de contacto</h4>
+              <ul class="list-unstyled">
+                <li><i class="fa fa-home"></i> Av. Tecnologico Nacional de Mexico Campus Apizaco</li>
+                <li><i class="fa fa-envelope"></i> Correo electrónico: ivansz123@gmail.com</li>
+                <li><i class="fa fa-phone"></i> Teléfono: 246 208 7165</li>
+              </ul>
+            </div>
+            <div class="col-md-4 d-none d-md-block text-center">
+              <h4>Enlaces útiles</h4>
+              <ul class="list-unstyled">
+                <li><a href="{% url 'catalogosHome' %}">Catalogos</a></li>
+                <li><a href="{% url 'usuariosHome' %}">Usuarios</a></li>
+                <li><a href="{% url 'facturacionHome' %}">Facturacion</a></li>
+                <li><a href="{% url 'remisionesHome' %}">Remisiones</a></li>
+
+              </ul>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+              <h4>Suscríbete a nuestro boletín</h4>
+              <form>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Introduce tu correo electrónico">
+                </div>
+                <button type="submit" class="btn btn-primary">Suscríbete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src={% static 'js/secciones.js' %}></script>
+  </body>
+</html>

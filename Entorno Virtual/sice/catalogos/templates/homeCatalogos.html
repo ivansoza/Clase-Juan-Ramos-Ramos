@@ -23,4 +23,42 @@
 
 {% block contenido%}
     <h1>Estas en el home de catalogos </h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            {{ form.numero.label_tag }}
+            {{ form.numero }}
+        </div>
+        <div>
+            {{ form.numTC.label_tag }}
+            {{ form.numTC }}
+        </div>
+        <div>
+            {{ form.fecha.label_tag }}
+            {{ form.fecha }}
+        </div>
+        <div>
+            {{ form.vehiculo.label_tag }}
+            {{ form.vehiculo }}
+        </div>
+        <div>
+            {{ form.propietario.label_tag }}
+            {{ form.propietario }}
+        </div>
+        <div>
+            {{ form.estatus.label_tag }}
+            {{ form.estatus }}
+        </div>
+        <div>
+            {{ form.oficina.label_tag }}
+            {{ form.oficina }}
+        </div>
+        <button type="submit">Guardazr</button>
+    </form>
+    {% if form.errors %}
+    <div>
+        {{ form.errors }}
+    </div>
+{% endif %}
+    
 {% endblock%}

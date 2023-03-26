@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block titulo %}Catalogos -  Oficinas{% endblock  %}
+
+
+{% block ref1 %}
+    <a class="navbar-brand" href={% url 'catalogosHome' %}>Catalogos</a>
+{% endblock  %}
+
+{% block ref2 %}
+    <a class="nav-link" href={% url 'index' %}>inicio</a>
+{% endblock  %}
+{% block ref3 %}
+    <li class="nav-item">
+        <a class="nav-link" href={% url 'catalogosVehiculo' %}>Vehiculo</a>
+    </li>
+{% endblock  %}
+
+{% block ref4 %}
+    <a class="nav-link" href={% url 'catalogosPropietario' %}>Propietario</a>
+{% endblock  %}
+
+{% block ref5 %}
+  <a class="nav-link" href={% url 'catalogosOficina' %}>Oficina</a>
+{% endblock  %}
+
+{% block ref6 %}
+    <li class="nav-item">
+      <a class="nav-link" href={% url 'catalogosPlaca' %}>Placa</a>
+    </li>
+{% endblock ref6 %}
+    
+{% block contenido %}
+<h3 class="text-center">Formulario de Oficina</h3>
+<p class="fs-5 text-center px-5">SICE.</p>
+
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <form action="" method="post">
+            {%csrf_token%}
+            {{form|crispy}}
+            <input class="btn btn-primary float-end btn-dark" type="submit" value="Continuar" {% if "ok" in request.GET %}disabled{% endif %}{% if "error" in request.GET%}disabled{% endif %}>
+        </form>
+        {% if "ok" in request.GET %}
+            <div class="alert alert-success mt-5" role="alert">
+                <strong>El mensaje se ha enviado correctamente</strong>
+            </div>
+        
+        {% endif %}
+
+        {% if "error" in request.GET %}
+            <div class="alert alert-danger mt-5" role="alert">
+                <strong>El mensaje no se ha enviado correctamente</strong>
+            </div>
+        
+        {% endif %}
+    </div>
+</div>
+{% endblock  %}
